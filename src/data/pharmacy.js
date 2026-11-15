@@ -1,0 +1,85 @@
+// Patient-education information only. Dose and duration always come from the prescribing doctor.
+export const medicineCategories = [
+  "All", "Pain & Fever", "Antibiotics", "Heart & BP", "Diabetes", "Stomach & Liver",
+  "Allergy & Respiratory", "Vitamins & Minerals", "Children", "Skin & Eye", "Women's Health",
+  "Mental Health & Nerves", "First-aid & Supplies",
+];
+
+// [name, generic, category, form, rx, usedFor, howToTake, caution]
+const m = [
+  ["Panadol / Calpol", "Paracetamol", "Pain & Fever", "Tablet, syrup", "OTC", "Fever, headache, body ache", "With or without food. Keep at least 4–6 hours between doses.", "Never exceed the daily limit. Overdose damages the liver. Check other medicines for hidden paracetamol."],
+  ["Brufen / Advil", "Ibuprofen", "Pain & Fever", "Tablet, syrup", "OTC", "Pain, inflammation, fever", "After food.", "Avoid in kidney disease, stomach ulcer and late pregnancy. Avoid in suspected dengue."],
+  ["Voltral / Voltaren", "Diclofenac", "Pain & Fever", "Tablet, gel, injection", "Rx", "Joint pain, muscle pain, injury", "After food. Gel on the painful area only.", "Can harm kidney, stomach and heart if used long term."],
+  ["Ponstan", "Mefenamic acid", "Pain & Fever", "Capsule", "OTC", "Period pain, toothache", "After food.", "Not for more than a few days. Stop if stomach pain or diarrhoea."],
+  ["Tramal", "Tramadol", "Pain & Fever", "Capsule, injection", "Controlled", "Moderate to severe pain", "Exactly as prescribed.", "Can cause drowsiness and dependence. Never drive after taking it."],
+  ["Augmentin", "Amoxicillin + Clavulanate", "Antibiotics", "Tablet, syrup", "Rx", "Chest, ear, throat, urinary and skin infections", "With food at the start of a meal.", "Finish the full course. Tell the doctor about any penicillin allergy."],
+  ["Amoxil", "Amoxicillin", "Antibiotics", "Capsule, syrup", "Rx", "Throat, ear and chest infections", "Evenly spaced through the day.", "Rash or swelling means stop and see a doctor."],
+  ["Zithromax", "Azithromycin", "Antibiotics", "Tablet, syrup", "Rx", "Chest and throat infection, typhoid in some cases", "One hour before or two hours after food.", "May affect heart rhythm in people with heart disease."],
+  ["Ciproxin", "Ciprofloxacin", "Antibiotics", "Tablet", "Rx", "Urinary infection, some stomach infections", "With plenty of water.", "Not for children and pregnancy. Can cause tendon pain."],
+  ["Flagyl", "Metronidazole", "Antibiotics", "Tablet, syrup", "Rx", "Amoebiasis, giardia, dental and pelvic infection", "After food.", "No alcohol during treatment and for 48 hours after."],
+  ["Cefixime / Suprax", "Cefixime", "Antibiotics", "Capsule, syrup", "Rx", "Typhoid, urinary and chest infection", "With or without food.", "Do not stop early."],
+  ["Concor", "Bisoprolol", "Heart & BP", "Tablet", "Rx", "High BP, angina, heart failure, fast pulse", "Morning, same time daily.", "Never stop suddenly. Check pulse; tell the doctor if below 50."],
+  ["Norvasc", "Amlodipine", "Heart & BP", "Tablet", "Rx", "High blood pressure, angina", "Once daily.", "Can cause ankle swelling."],
+  ["Cozaar / Losar", "Losartan", "Heart & BP", "Tablet", "Rx", "High BP, diabetic kidney protection", "Once daily.", "Not in pregnancy. Kidney function and potassium should be checked."],
+  ["Lasix", "Furosemide", "Heart & BP", "Tablet, injection", "Rx", "Swelling, heart failure, kidney disease", "Morning, so you are not up at night.", "Can lower potassium and cause dizziness."],
+  ["Disprin / Ecosprin", "Aspirin (low dose)", "Heart & BP", "Tablet", "OTC", "Prevents clots after heart attack or stent", "After food.", "Take only when advised. Can cause stomach bleeding."],
+  ["Lipitor", "Atorvastatin", "Heart & BP", "Tablet", "Rx", "High cholesterol, heart protection", "At night.", "Report severe muscle pain. Liver tests are checked from time to time."],
+  ["Sorbitrate", "Isosorbide dinitrate", "Heart & BP", "Tablet (sublingual)", "Rx", "Chest pain (angina)", "Under the tongue during an attack.", "Sit down first. Can cause headache and dizziness. Not with Viagra-type drugs."],
+  ["Glucophage", "Metformin", "Diabetes", "Tablet", "Rx", "Type 2 diabetes", "With or just after meals.", "Stomach upset at first. Stop before contrast scans or if vomiting. Kidney function is checked."],
+  ["Diamicron", "Gliclazide", "Diabetes", "Tablet", "Rx", "Type 2 diabetes", "Before breakfast.", "Can cause low sugar. Do not skip meals."],
+  ["Januvia", "Sitagliptin", "Diabetes", "Tablet", "Rx", "Type 2 diabetes", "Once daily.", "Report severe stomach pain."],
+  ["Lantus / Insulatard", "Insulin", "Diabetes", "Injection, pen", "Rx", "Type 1 and advanced type 2 diabetes", "Under the skin as taught by your nurse. Rotate sites.", "Low sugar signs: sweating, shaking, confusion. Take sugar or juice at once. Store unopened insulin in the fridge."],
+  ["Risek / Nexum", "Omeprazole / Esomeprazole", "Stomach & Liver", "Capsule, tablet", "OTC / Rx", "Acidity, reflux, ulcer", "30 minutes before breakfast.", "Long-term use lowers magnesium and B12. Review need with the doctor."],
+  ["Motilium", "Domperidone", "Stomach & Liver", "Tablet, syrup", "Rx", "Nausea and vomiting", "15–30 minutes before meals.", "Short courses only. Heart rhythm caution."],
+  ["ORS (Pedialyte / Nan-ORS)", "Oral rehydration salts", "Stomach & Liver", "Powder sachet", "OTC", "Diarrhoea and dehydration", "Mix one sachet in the exact water volume on the packet. Sip often.", "Do not add extra sugar or salt. Go to hospital if the person cannot drink or is very sleepy."],
+  ["Duphalac", "Lactulose", "Stomach & Liver", "Syrup", "OTC", "Constipation, liver disease confusion", "As directed.", "Gas and loose stools at first."],
+  ["Ventolin", "Salbutamol", "Allergy & Respiratory", "Inhaler, nebulizer solution", "Rx", "Asthma attack, wheezing", "Shake inhaler, use a spacer for children.", "If you need it more than twice a week, asthma is not controlled. See your doctor."],
+  ["Seretide / Symbicort", "Steroid + long-acting inhaler", "Allergy & Respiratory", "Inhaler", "Rx", "Asthma and COPD control", "Daily even when well. Rinse mouth after.", "Not for sudden attacks."],
+  ["Montelukast / Singulair", "Montelukast", "Allergy & Respiratory", "Tablet", "Rx", "Asthma, allergic rhinitis", "At night.", "Report mood change or sleep problems."],
+  ["Zyrtec / Cetrizine", "Cetirizine", "Allergy & Respiratory", "Tablet, syrup", "OTC", "Allergy, runny nose, itching", "Once daily.", "Can cause sleepiness."],
+  ["Mucolyte / Bisolvon", "Cough expectorant", "Allergy & Respiratory", "Syrup", "OTC", "Chest cough with phlegm", "As directed.", "Not for children under 2 years unless advised."],
+  ["Vitamin D3", "Cholecalciferol", "Vitamins & Minerals", "Capsule, sachet, injection", "OTC / Rx", "Vitamin D deficiency, bones", "Weekly or daily as prescribed.", "Do not take large doses without a blood test."],
+  ["Ferrous / Fefol", "Iron + folic acid", "Vitamins & Minerals", "Capsule, syrup", "OTC", "Anaemia, pregnancy", "Empty stomach with vitamin C. Not with tea or milk.", "Dark stools are normal. Keep away from children. Iron overdose is dangerous."],
+  ["Calcium + D", "Calcium carbonate", "Vitamins & Minerals", "Tablet", "OTC", "Bone health, pregnancy", "With food.", "Separate from iron and thyroid tablets by 4 hours."],
+  ["Folic acid", "Folic acid", "Vitamins & Minerals", "Tablet", "OTC", "Before and during early pregnancy", "Daily.", "Start before conception."],
+  ["Neurobion", "Vitamin B complex", "Vitamins & Minerals", "Tablet, injection", "OTC", "Numbness, B12 deficiency", "After food.", "Tingling does not always mean B12. Get tested."],
+  ["Calpol / Panadol Drops", "Paracetamol (infant)", "Children", "Drops, suspension", "OTC", "Fever and pain in babies", "Dose by weight, never by age alone. Use the supplied syringe.", "Check strength on bottle (120 mg/5 ml vs 250 mg/5 ml). Under 3 months with fever: see a doctor first."],
+  ["Zinc sulphate", "Zinc", "Children", "Syrup, dispersible tablet", "OTC", "Diarrhoea in children", "Daily for 10–14 days with ORS.", "Complete the course even after diarrhoea stops."],
+  ["Vaccines (EPI)", "Childhood vaccines", "Children", "Injection, oral drops", "Programme", "Polio, BCG, pentavalent, measles, HPV, typhoid", "Given at fixed ages by the vaccination clinic.", "Keep the vaccination card safe. Mild fever after vaccine is normal."],
+  ["Betnovate", "Betamethasone cream", "Skin & Eye", "Cream", "Rx", "Eczema, allergic rash", "Thin layer on the rash only.", "Never on the face or fungal rash unless advised."],
+  ["Canesten", "Clotrimazole", "Skin & Eye", "Cream, powder", "OTC", "Ringworm, fungal infection", "Twice daily, continue 2 weeks after rash clears.", "Keep skin dry."],
+  ["Chloramphenicol drops", "Antibiotic eye drops", "Skin & Eye", "Eye drops", "Rx", "Bacterial eye infection", "Wash hands, do not touch the tip.", "Throw away 28 days after opening."],
+  ["Artificial tears", "Lubricating drops", "Skin & Eye", "Eye drops", "OTC", "Dry or tired eyes", "As needed.", "Do not share bottles."],
+  ["Folic + Iron (antenatal)", "Antenatal supplement", "Women's Health", "Tablet", "Rx", "Pregnancy", "Daily.", "Take as the gynaecologist advised."],
+  ["Primolut / Duphaston", "Progestogen", "Women's Health", "Tablet", "Rx", "Irregular periods, threatened miscarriage", "As prescribed.", "Not self-prescribed."],
+  ["Oral contraceptive pills", "Hormonal contraception", "Women's Health", "Tablet", "Rx", "Pregnancy prevention, cycle control", "Same time daily.", "Not for smokers over 35 or with clot history."],
+  ["Sertraline / Lexapro", "SSRI antidepressant", "Mental Health & Nerves", "Tablet", "Rx", "Depression, anxiety", "Daily. Takes 2–4 weeks to work.", "Never stop suddenly. Tell the doctor about suicidal thoughts at once."],
+  ["Tegral / Epival", "Carbamazepine / Valproate", "Mental Health & Nerves", "Tablet", "Rx", "Epilepsy, nerve pain", "Same times daily.", "Never miss doses. Not in pregnancy without specialist advice."],
+  ["Gabapentin / Lyrica", "Gabapentin / Pregabalin", "Mental Health & Nerves", "Capsule", "Rx", "Nerve pain, seizures", "As prescribed.", "Drowsiness, dizziness. Can be habit forming."],
+  ["Dressings & bandages", "Sterile gauze, crepe, plaster", "First-aid & Supplies", "Supplies", "OTC", "Wound care", "Clean wound with water first.", "Change daily and watch for pus or redness."],
+  ["Digital thermometer & BP monitor", "Home monitoring devices", "First-aid & Supplies", "Device", "OTC", "Fever and BP checking at home", "Rest 5 minutes before BP reading.", "Use an upper-arm cuff, not wrist, if possible."],
+  ["Glucometer & strips", "Blood sugar meter", "First-aid & Supplies", "Device", "OTC", "Home sugar testing", "Wash and dry hands first.", "Check the strip expiry date."],
+  ["Wheelchairs, walkers, oxygen concentrators", "Home medical equipment", "First-aid & Supplies", "Rent or buy", "OTC", "Mobility and home oxygen", "Ask pharmacist for demonstration.", "Oxygen: no flames or smoking nearby."],
+];
+
+export const medicines = m.map(([name, generic, category, form, rx, usedFor, howToTake, caution], i) => ({
+  id: i + 1, name, generic, category, form, rx, usedFor, howToTake, caution,
+}));
+
+export const pharmacyServices = [
+  { icon: "🕑", title: "Open 24 hours", text: "Emergency prescriptions are filled at any hour. Ring the night bell at the side door." },
+  { icon: "🚚", title: "Home delivery", text: "Free delivery within 10 km on orders above PKR 1,500. Send a photo of the prescription on WhatsApp." },
+  { icon: "🔁", title: "Refill reminders", text: "Ask us to remind you before your long-term medicines run out." },
+  { icon: "🧑‍⚕️", title: "Pharmacist counselling", text: "A qualified pharmacist explains how, when and why to take each medicine." },
+  { icon: "🔍", title: "Generic alternatives", text: "Ask for a safe, lower-cost generic of the same medicine." },
+  { icon: "❄️", title: "Cold-chain storage", text: "Insulin, vaccines and injections stored at 2–8°C." },
+];
+
+export const pharmacyGuides = [
+  { q: "Can I take two painkillers together?", a: "Not without advice. Many cold and flu products already contain paracetamol, so doubling up can overdose you. Ask the pharmacist to check." },
+  { q: "I forgot a dose. What now?", a: "Take it when you remember unless it is almost time for the next one. Never double the next dose. For insulin, anticoagulants or epilepsy medicines, call your doctor." },
+  { q: "How should I store medicines?", a: "Cool, dry place, away from sunlight and out of children's reach. The bathroom is too humid. Insulin and some syrups need the fridge." },
+  { q: "Why must I finish the antibiotic course?", a: "Stopping early lets the strongest bacteria survive and come back resistant. This is how common infections become hard to treat." },
+  { q: "What is the difference between brand and generic?", a: "They contain the same active ingredient. The generic is usually cheaper. Ask your doctor or pharmacist before switching." },
+  { q: "Are expired medicines dangerous?", a: "Some lose strength, and some like tetracycline can become harmful. Do not use them. Bring them to the pharmacy for safe disposal." },
+];

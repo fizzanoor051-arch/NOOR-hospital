@@ -1,0 +1,2190 @@
+
+
+:root {
+  --primary: #0b6e69;
+  --primary-dark: #064f4b;
+  --secondary: #d8a84e;
+  --dark: #102a2a;
+  --text: #526565;
+  --light: #f4f8f7;
+  --white: #ffffff;
+  --border: #dce8e6;
+  --shadow: 0 15px 40px rgba(11, 78, 74, 0.10);
+  --radius: 18px;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--white);
+  color: var(--dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+a {
+  transition: all 0.3s ease;
+}
+
+/* =========================================================
+   MAIN APP
+========================================================= */
+
+.hospital-app {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.hospital-header {
+  min-height: 82px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--border);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  backdrop-filter: blur(12px);
+}
+
+.hospital-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--primary);
+  color: white;
+
+  border-radius: 14px;
+
+  font-size: 25px;
+  font-weight: 700;
+
+  box-shadow: 0 8px 20px rgba(11, 110, 105, 0.25);
+}
+
+.hospital-logo h1 {
+  margin: 0;
+  font-size: 21px;
+  letter-spacing: 2px;
+}
+
+.hospital-logo div span {
+  display: block;
+  margin-top: 2px;
+
+  color: var(--text);
+
+  font-size: 8px;
+  letter-spacing: 1.6px;
+}
+
+.hospital-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.hospital-nav a {
+  color: #526363;
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+}
+
+.hospital-nav a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--primary);
+
+  transition: width 0.3s ease;
+}
+
+.hospital-nav a:hover {
+  color: var(--primary);
+}
+
+.hospital-nav a:hover::after {
+  width: 100%;
+}
+
+.header-appointment {
+  padding: 12px 20px;
+
+  background: var(--primary);
+  color: white;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  box-shadow: 0 8px 20px rgba(11, 110, 105, 0.20);
+}
+
+.header-appointment:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hospital-hero {
+  min-height: 650px;
+  padding: 90px 8%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+
+  background:
+    radial-gradient(circle at 80% 30%, rgba(216, 168, 78, 0.12), transparent 28%),
+    linear-gradient(135deg, #edf8f6, #ffffff);
+
+  position: relative;
+}
+
+.hero-content {
+  max-width: 700px;
+
+  animation: heroReveal 0.9s ease both;
+}
+
+.hero-label,
+.section-label {
+  display: inline-block;
+
+  color: var(--primary);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+}
+
+.hero-content h2 {
+  margin: 18px 0;
+
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 0.98;
+
+  letter-spacing: -3px;
+}
+
+.hero-content h2 strong {
+  color: var(--primary);
+}
+
+.hero-content p {
+  max-width: 590px;
+
+  color: var(--text);
+
+  font-size: 17px;
+  line-height: 1.8;
+
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-primary,
+.hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 24px;
+
+  border-radius: 10px;
+
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.hero-primary {
+  background: var(--primary);
+  color: white;
+
+  box-shadow: 0 12px 25px rgba(11, 110, 105, 0.20);
+}
+
+.hero-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+}
+
+.hero-secondary {
+  background: white;
+  color: var(--primary);
+
+  border: 1px solid var(--primary);
+}
+
+.hero-secondary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* =========================================================
+   HERO MEDICAL CARD
+========================================================= */
+
+.hero-medical-card {
+  width: 300px;
+  min-height: 360px;
+
+  padding: 40px 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background: var(--primary);
+  color: white;
+
+  border-radius: 30px;
+
+  box-shadow: 0 30px 60px rgba(11, 78, 74, 0.25);
+
+  animation: floatingCard 4s ease-in-out infinite;
+}
+
+.medical-cross {
+  width: 55px;
+  height: 55px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 25px;
+
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  font-size: 28px;
+}
+
+.hero-medical-card span {
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.hero-medical-card h3 {
+  margin: 8px 0 15px;
+
+  font-size: 32px;
+  line-height: 1.05;
+}
+
+.hero-medical-card p {
+  color: rgba(255, 255, 255, 0.8);
+
+  line-height: 1.7;
+}
+
+.hero-medical-card a {
+  margin-top: 15px;
+
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* =========================================================
+   QUICK SERVICES
+========================================================= */
+
+.quick-services {
+  width: 88%;
+  margin: -35px auto 0;
+
+  position: relative;
+  z-index: 5;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  background: white;
+
+  border-radius: 18px;
+
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.quick-service {
+  padding: 28px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  border-right: 1px solid var(--border);
+}
+
+.quick-service:last-child {
+  border-right: none;
+}
+
+.quick-service > span {
+  font-size: 32px;
+}
+
+.quick-service h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.quick-service p {
+  margin: 0;
+  color: var(--text);
+  font-size: 12px;
+}
+
+/* =========================================================
+   COMMON SECTION
+========================================================= */
+
+.about-section,
+.departments-section,
+.doctors-section,
+.facilities-section,
+.appointment-section,
+.contact-section {
+  padding: 110px 8%;
+}
+
+.section-heading {
+  max-width: 650px;
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+.section-heading h2,
+.about-content h2,
+.appointment-content h2,
+.contact-section h2,
+.emergency-content h2,
+.pharmacy-content h2 {
+  margin: 15px 0;
+
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+}
+
+.section-heading h2 strong,
+.about-content h2 strong,
+.appointment-content h2 strong,
+.contact-section h2 strong,
+.emergency-content h2 strong,
+.pharmacy-content h2 strong {
+  color: var(--primary);
+}
+
+.section-heading p,
+.about-content p,
+.appointment-content p,
+.contact-section p,
+.emergency-content p,
+.pharmacy-content p {
+  color: var(--text);
+  line-height: 1.8;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-section {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 80px;
+}
+
+.about-content {
+  max-width: 650px;
+}
+
+.about-content p {
+  margin: 18px 0;
+}
+
+.learn-more {
+  display: inline-block;
+
+  margin-top: 15px;
+
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.stat-box {
+  padding: 30px 20px;
+
+  background: var(--light);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  text-align: center;
+}
+
+.stat-box strong {
+  display: block;
+
+  color: var(--primary);
+
+  font-size: 38px;
+}
+
+.stat-box span {
+  display: block;
+
+  margin-top: 8px;
+
+  color: var(--text);
+  font-size: 13px;
+}
+
+/* =========================================================
+   DEPARTMENTS
+========================================================= */
+
+.departments-section {
+  background: var(--light);
+}
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.department-box {
+  padding: 35px 28px;
+
+  background: white;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
+
+  transition: all 0.35s ease;
+}
+
+.department-box:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(11, 110, 105, 0.35);
+
+  box-shadow: var(--shadow);
+}
+
+.department-box > span {
+  display: block;
+
+  margin-bottom: 20px;
+
+  font-size: 38px;
+}
+
+.department-box h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.department-box p {
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.department-box a {
+  display: inline-block;
+
+  margin-top: 10px;
+
+  color: var(--primary);
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   DOCTORS
+========================================================= */
+
+.doctor-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.doctor-preview {
+  padding: 35px 25px;
+
+  text-align: center;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  background: white;
+
+  transition: all 0.35s ease;
+}
+
+.doctor-preview:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+}
+
+.doctor-avatar {
+  width: 105px;
+  height: 105px;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0 auto 20px;
+
+  background: var(--light);
+
+  border-radius: 50%;
+
+  font-size: 48px;
+}
+
+.doctor-preview > span {
+  color: var(--primary);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.doctor-preview h3 {
+  margin: 10px 0 5px;
+}
+
+.doctor-preview p {
+  margin: 0;
+  color: var(--text);
+}
+
+.doctor-preview a {
+  display: inline-block;
+
+  margin-top: 18px;
+
+  color: var(--primary);
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* =========================================================
+   EMERGENCY
+========================================================= */
+
+.emergency-section {
+  padding: 100px 8%;
+
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 60px;
+  align-items: center;
+
+  background: #102f2e;
+  color: white;
+}
+
+.emergency-label {
+  color: #f1c766;
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.emergency-content h2 {
+  margin-top: 15px;
+}
+
+.emergency-content h2 strong {
+  color: #f1c766;
+}
+
+.emergency-content p {
+  max-width: 650px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.emergency-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+
+  margin-top: 30px;
+}
+
+.emergency-call,
+.emergency-info {
+  padding: 14px 22px;
+
+  border-radius: 10px;
+
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.emergency-call {
+  background: white;
+  color: var(--dark);
+}
+
+.emergency-info {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.emergency-card {
+  padding: 35px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 22px;
+}
+
+.emergency-big-icon {
+  font-size: 45px;
+}
+
+.emergency-card h3 {
+  font-size: 25px;
+}
+
+.emergency-card li {
+  margin: 13px 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================================
+   FACILITIES
+========================================================= */
+
+.facilities-section {
+  background: var(--light);
+}
+
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.facility-item {
+  padding: 32px;
+
+  background: white;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  transition: transform 0.3s ease;
+}
+
+.facility-item:hover {
+  transform: translateY(-6px);
+}
+
+.facility-item > span {
+  font-size: 34px;
+}
+
+.facility-item h3 {
+  margin-bottom: 8px;
+}
+
+.facility-item p {
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   APPOINTMENT
+========================================================= */
+
+.appointment-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+
+  background: white;
+}
+
+.appointment-button {
+  display: inline-block;
+
+  margin-top: 15px;
+  padding: 14px 24px;
+
+  background: var(--primary);
+  color: white;
+
+  border-radius: 10px;
+
+  font-weight: 800;
+}
+
+.appointment-info {
+  display: grid;
+  gap: 18px;
+}
+
+.appointment-info > div {
+  padding: 25px;
+
+  display: grid;
+  grid-template-columns: 50px 1fr;
+
+  border: 1px solid var(--border);
+  border-radius: 15px;
+
+  background: var(--light);
+}
+
+.appointment-info span {
+  grid-row: span 2;
+  font-size: 28px;
+}
+
+.appointment-info strong {
+  font-size: 17px;
+}
+
+.appointment-info p {
+  margin: 5px 0 0;
+  color: var(--text);
+  font-size: 13px;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+
+  background: var(--light);
+}
+
+.contact-details {
+  display: grid;
+  gap: 20px;
+}
+
+.contact-details > div {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 22px;
+
+  background: white;
+
+  border-radius: 15px;
+  border: 1px solid var(--border);
+}
+
+.contact-details > div > span {
+  font-size: 28px;
+}
+
+.contact-details small {
+  display: block;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.contact-details strong {
+  display: block;
+  font-size: 15px;
+}
+
+/* =========================================================
+   PHARMACY
+========================================================= */
+
+.pharmacy-section {
+  padding: 100px 8%;
+
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  align-items: center;
+  gap: 70px;
+}
+
+.pharmacy-card {
+  padding: 45px;
+
+  background: var(--primary);
+  color: white;
+
+  border-radius: 25px;
+
+  box-shadow: var(--shadow);
+
+  animation: floatingCard 4s ease-in-out infinite;
+}
+
+.pharmacy-icon {
+  font-size: 50px;
+}
+
+.pharmacy-card h3 {
+  font-size: 26px;
+}
+
+.pharmacy-card p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================================
+   SERVICES / COMMON SERVICE CARD
+========================================================= */
+
+.service-card {
+  padding: 30px;
+
+  background: white;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow);
+}
+
+.service-icon {
+  font-size: 38px;
+}
+
+.service-card h3 {
+  margin-bottom: 8px;
+}
+
+.service-card p {
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.service-card a {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.hospital-footer {
+  padding: 45px 8%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+
+  background: #071d1d;
+  color: white;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-logo > span {
+  font-size: 30px;
+  color: #f1c766;
+}
+
+.footer-logo strong,
+.footer-logo small {
+  display: block;
+}
+
+.footer-logo strong {
+  letter-spacing: 2px;
+}
+
+.footer-logo small {
+  margin-top: 4px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.hospital-footer p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 12px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatingCard {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .hospital-header {
+    padding: 0 4%;
+  }
+
+  .hospital-nav {
+    gap: 15px;
+  }
+
+  .hospital-nav a {
+    font-size: 12px;
+  }
+
+  .hospital-hero {
+    padding: 80px 6%;
+  }
+
+  .quick-services {
+    width: 92%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .quick-service:nth-child(2) {
+    border-right: none;
+  }
+
+  .about-section,
+  .emergency-section,
+  .appointment-section,
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+
+  .department-grid,
+  .facilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .doctor-preview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pharmacy-section {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .hospital-header {
+    min-height: 70px;
+    padding: 10px 5%;
+
+    flex-wrap: wrap;
+  }
+
+  .hospital-logo h1 {
+    font-size: 17px;
+  }
+
+  .hospital-logo div span {
+    font-size: 6px;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hospital-nav {
+    width: 100%;
+
+    order: 3;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    padding-bottom: 8px;
+
+    overflow-x: auto;
+  }
+
+  .hospital-nav a {
+    white-space: nowrap;
+    font-size: 11px;
+  }
+
+  .header-appointment {
+    display: none;
+  }
+
+  .hospital-hero {
+    min-height: auto;
+
+    padding: 70px 6%;
+
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-content h2 {
+    font-size: 48px;
+    letter-spacing: -2px;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+  }
+
+  .hero-medical-card {
+    width: 100%;
+  }
+
+  .quick-services {
+    margin-top: 0;
+
+    grid-template-columns: 1fr;
+
+    border-radius: 0;
+  }
+
+  .quick-service {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .quick-service:last-child {
+    border-bottom: none;
+  }
+
+  .about-section,
+  .departments-section,
+  .doctors-section,
+  .facilities-section,
+  .appointment-section,
+  .contact-section {
+    padding: 75px 6%;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .department-grid,
+  .doctor-preview-grid,
+  .facilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .emergency-section {
+    padding: 75px 6%;
+  }
+
+  .emergency-card {
+    padding: 28px;
+  }
+
+  .appointment-info > div {
+    grid-template-columns: 45px 1fr;
+  }
+
+  .pharmacy-section {
+    padding: 75px 6%;
+  }
+
+  .contact-details > div {
+    align-items: flex-start;
+  }
+
+  .hospital-footer {
+    padding: 40px 6%;
+
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .hospital-nav {
+    justify-content: flex-start;
+  }
+
+  .hero-content h2 {
+    font-size: 40px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-primary,
+  .hero-secondary {
+    width: 100%;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading h2,
+  .about-content h2,
+  .appointment-content h2,
+  .contact-section h2,
+  .emergency-content h2,
+  .pharmacy-content h2 {
+    font-size: 38px;
+  }
+
+}
+/* =========================================================
+   ADVANCED MEDICARE ANIMATIONS
+========================================================= */
+
+/* ---------------------------------------------------------
+   1. HERO BACKGROUND MOVEMENT
+--------------------------------------------------------- */
+
+.hospital-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: -120px;
+  top: 80px;
+
+  border-radius: 50%;
+
+  background: rgba(11, 110, 105, 0.06);
+
+  filter: blur(10px);
+
+  animation: heroOrb 7s ease-in-out infinite;
+}
+
+.hospital-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  left: -80px;
+  bottom: 40px;
+
+  border-radius: 50%;
+
+  background: rgba(216, 168, 78, 0.07);
+
+  animation: heroOrbTwo 8s ease-in-out infinite;
+}
+
+@keyframes heroOrb {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-35px, 25px) scale(1.12);
+  }
+}
+
+@keyframes heroOrbTwo {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(35px, -20px);
+  }
+}
+
+/* Make sure hero content stays above background */
+
+.hero-content,
+.hero-medical-card {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ---------------------------------------------------------
+   2. HERO TEXT STAGGER
+--------------------------------------------------------- */
+
+.hero-label {
+  animation: slideDown 0.8s ease both;
+}
+
+.hero-content h2 {
+  animation: slideUp 0.9s 0.15s ease both;
+}
+
+.hero-content p {
+  animation: slideUp 0.9s 0.3s ease both;
+}
+
+.hero-buttons {
+  animation: slideUp 0.9s 0.45s ease both;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   3. MEDICAL CARD PREMIUM FLOAT
+--------------------------------------------------------- */
+
+.hero-medical-card {
+  animation:
+    medicalFloat 4s ease-in-out infinite,
+    cardAppear 1s 0.3s ease both;
+}
+
+@keyframes medicalFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(0.5deg);
+  }
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   4. MEDICAL CROSS PULSE
+--------------------------------------------------------- */
+
+.medical-cross {
+  animation: crossPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes crossPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.08);
+  }
+
+  50% {
+    box-shadow: 0 0 0 12px rgba(255, 255, 255, 0);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   5. QUICK SERVICE HOVER
+--------------------------------------------------------- */
+
+.quick-service {
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.quick-service::before {
+  content: "";
+
+  position: absolute;
+
+  left: -100%;
+  bottom: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: #0b6e69;
+
+  transition: left 0.4s ease;
+}
+
+.quick-service:hover::before {
+  left: 0;
+}
+
+.quick-service:hover {
+  transform: translateY(-5px);
+  background: #fbfefe;
+}
+
+.quick-service > span {
+  transition: transform 0.35s ease;
+}
+
+.quick-service:hover > span {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+
+/* ---------------------------------------------------------
+   6. DEPARTMENT CARDS
+--------------------------------------------------------- */
+
+.department-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.department-box::before {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: -50px;
+  top: -50px;
+
+  border-radius: 50%;
+
+  background: rgba(11, 110, 105, 0.06);
+
+  transition:
+    transform 0.5s ease,
+    background 0.5s ease;
+}
+
+.department-box:hover::before {
+  transform: scale(3);
+  background: rgba(11, 110, 105, 0.04);
+}
+
+.department-box > span,
+.department-box h3,
+.department-box p,
+.department-box a {
+  position: relative;
+  z-index: 1;
+}
+
+.department-box > span {
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.department-box:hover > span {
+  transform: translateY(-5px) scale(1.15);
+  filter: drop-shadow(0 8px 8px rgba(11, 110, 105, 0.15));
+}
+
+
+/* ---------------------------------------------------------
+   7. DOCTOR CARD PREMIUM HOVER
+--------------------------------------------------------- */
+
+.doctor-preview {
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.doctor-preview::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+
+  width: 0;
+  height: 3px;
+
+  background: #0b6e69;
+
+  transition:
+    width 0.4s ease,
+    left 0.4s ease;
+}
+
+.doctor-preview:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+.doctor-avatar {
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.doctor-preview:hover .doctor-avatar {
+  transform: scale(1.08) translateY(-5px);
+
+  box-shadow:
+    0 10px 25px rgba(11, 110, 105, 0.15);
+}
+
+
+/* ---------------------------------------------------------
+   8. FACILITY CARDS
+--------------------------------------------------------- */
+
+.facility-item {
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.facility-item::after {
+  content: "";
+
+  position: absolute;
+
+  width: 70px;
+  height: 70px;
+
+  right: -30px;
+  bottom: -30px;
+
+  border-radius: 50%;
+
+  background: rgba(11, 110, 105, 0.08);
+
+  transition: transform 0.4s ease;
+}
+
+.facility-item:hover::after {
+  transform: scale(2.5);
+}
+
+.facility-item > * {
+  position: relative;
+  z-index: 1;
+}
+
+.facility-item > span {
+  display: inline-block;
+
+  transition:
+    transform 0.4s ease;
+}
+
+.facility-item:hover > span {
+  transform: scale(1.18) rotate(5deg);
+}
+
+
+/* ---------------------------------------------------------
+   9. BUTTON SHINE EFFECT
+--------------------------------------------------------- */
+
+.hero-primary,
+.appointment-button,
+.header-appointment {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.hero-primary::before,
+.appointment-button::before,
+.header-appointment::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 60%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.6s ease;
+}
+
+.hero-primary:hover::before,
+.appointment-button:hover::before,
+.header-appointment:hover::before {
+  left: 140%;
+}
+
+
+/* ---------------------------------------------------------
+   10. EMERGENCY SECTION GLOW
+--------------------------------------------------------- */
+
+.emergency-card {
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.emergency-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.20);
+}
+
+.emergency-big-icon {
+  display: inline-block;
+
+  animation: ambulancePulse 2s ease-in-out infinite;
+}
+
+@keyframes ambulancePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   11. CONTACT CARDS
+--------------------------------------------------------- */
+
+.contact-details > div {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.contact-details > div:hover {
+  transform: translateX(7px);
+
+  box-shadow:
+    0 10px 25px rgba(11, 110, 105, 0.08);
+}
+
+.contact-details > div > span {
+  transition: transform 0.3s ease;
+}
+
+.contact-details > div:hover > span {
+  transform: scale(1.15);
+}
+
+
+/* ---------------------------------------------------------
+   12. APPOINTMENT CARDS
+--------------------------------------------------------- */
+
+.appointment-info > div {
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.appointment-info > div:hover {
+  transform: translateX(8px);
+
+  border-color: rgba(11, 110, 105, 0.35);
+}
+
+.appointment-info > div > span {
+  transition: transform 0.35s ease;
+}
+
+.appointment-info > div:hover > span {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+
+/* ---------------------------------------------------------
+   13. FOOTER LINK ANIMATION
+--------------------------------------------------------- */
+
+.footer-links a {
+  position: relative;
+}
+
+.footer-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -5px;
+
+  width: 0;
+  height: 1px;
+
+  background: #ffffff;
+
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   14. SCROLL REVEAL SUPPORT
+--------------------------------------------------------- */
+
+.about-section,
+.departments-section,
+.doctors-section,
+.facilities-section,
+.appointment-section,
+.contact-section {
+  animation: sectionReveal 0.8s ease both;
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   15. MOBILE ANIMATION OPTIMIZATION
+--------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+  .hospital-hero::before,
+  .hospital-hero::after {
+    opacity: 0.5;
+  }
+
+  .hero-medical-card {
+    animation: mobileFloat 4s ease-in-out infinite;
+  }
+
+  @keyframes mobileFloat {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-7px);
+    }
+  }
+
+  .department-box:hover,
+  .doctor-preview:hover,
+  .facility-item:hover {
+    transform: translateY(-4px);
+  }
+}
+
+
+/* ---------------------------------------------------------
+   16. REDUCED MOTION
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hospital-hero::before,
+  .hospital-hero::after,
+  .hero-medical-card,
+  .medical-cross,
+  .emergency-big-icon {
+    animation: none !important;
+  }
+
+  .department-box,
+  .doctor-preview,
+  .facility-item,
+  .quick-service,
+  .contact-details > div,
+  .appointment-info > div {
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   PREMIUM DEPARTMENT CARDS
+========================================================= */
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 45px;
+}
+
+/* CARD */
+
+.department-box {
+  position: relative;
+
+  min-height: 330px;
+  padding: 34px 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5eeee;
+  border-radius: 24px;
+
+  box-shadow:
+    0 10px 35px rgba(15, 70, 70, 0.06);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+/* Decorative circle */
+
+.department-box::before {
+  content: "";
+
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  right: -65px;
+  top: -65px;
+
+  border-radius: 50%;
+
+  background: #eef8f7;
+
+  transition:
+    transform 0.5s ease,
+    background 0.5s ease;
+}
+
+/* Bottom accent */
+
+.department-box::after {
+  content: "";
+
+  position: absolute;
+
+  left: 30px;
+  bottom: 0;
+
+  width: 45px;
+  height: 4px;
+
+  border-radius: 10px 10px 0 0;
+
+  background: #0b6e69;
+
+  transition: width 0.4s ease;
+}
+
+/* Hover */
+
+.department-box:hover {
+  transform: translateY(-10px);
+
+  border-color: #cfe4e2;
+
+  box-shadow:
+    0 22px 55px rgba(15, 70, 70, 0.13);
+}
+
+.department-box:hover::before {
+  transform: scale(2.4);
+  background: #e5f4f2;
+}
+
+.department-box:hover::after {
+  width: 110px;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.department-box > span {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 68px;
+  height: 68px;
+
+  margin-bottom: 24px;
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+    135deg,
+    #e8f7f5,
+    #f5fbfa
+  );
+
+  font-size: 31px;
+
+  box-shadow:
+    0 8px 20px rgba(11, 110, 105, 0.08);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.department-box:hover > span {
+  transform:
+    translateY(-5px)
+    rotate(-5deg)
+    scale(1.08);
+
+  box-shadow:
+    0 12px 25px rgba(11, 110, 105, 0.16);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.department-box h3 {
+  position: relative;
+  z-index: 2;
+
+  margin-bottom: 10px;
+
+  color: #123b3a;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  letter-spacing: -0.3px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.department-box p {
+  position: relative;
+  z-index: 2;
+
+  max-width: 290px;
+
+  margin-bottom: 22px;
+
+  color: #708584;
+
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   SPECIALIST LINK
+========================================================= */
+
+.department-box a {
+  position: relative;
+  z-index: 2;
+
+  display: inline-flex;
+
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 15px;
+
+  border-radius: 10px;
+
+  background: #f1f8f7;
+
+  color: #0b6e69;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.department-box a:hover {
+  background: #0b6e69;
+  color: #ffffff;
+
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   OPTIONAL CATEGORY LABEL
+========================================================= */
+
+.department-box h3::before {
+  content: "SPECIALTY";
+
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #91aaa8;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.8px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .department-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+
+  .department-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .department-box {
+    min-height: auto;
+
+    padding: 28px 24px;
+  }
+
+  .department-box > span {
+    width: 60px;
+    height: 60px;
+
+    font-size: 27px;
+  }
+
+  .department-box h3 {
+    font-size: 20px;
+  }
+}
